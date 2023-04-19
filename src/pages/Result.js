@@ -1,14 +1,26 @@
 import Ad from "../components/common/Ad";
-import './Home.css';
-import { useState } from "react";
-
-
+import RelatedImage from "../components/Result/RelatedImage";
+import RelatedLink from "../components/Result/RelatedLink";
+import SelectedList from "../components/Result/SelectedList";
+import Styling from "../components/Result/Styling";
+import './Result.css';
 const Result = () => {
     return (
-        <div className="home">
-            <div className="ad"><Ad className="ad"/></div>
-        
+        <div className="page-content">
+        <div className="left-section">
+            <Ad />
         </div>
+        <div className="center-section">
+            <Styling />
+        </div>
+        <div className="right-section">
+            <RelatedImage />
+            <RelatedLink />
+        </div>
+        <div className="bottom-section">
+            <SelectedList />
+        </div>
+    </div>
     )
 }
 

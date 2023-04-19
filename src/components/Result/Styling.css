@@ -1,0 +1,17 @@
+.styling-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.styling-avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.man-icon {
+  position: relative;
+}

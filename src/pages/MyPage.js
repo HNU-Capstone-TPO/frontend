@@ -18,9 +18,10 @@ import {
 } from './MyPageStyles';
 
 
-const MainPage = () => {
+const Mypage = () => {
   return (
     <>
+    {/*
       <Header>
         <Nav>
           <NavItem to="/login">로그인</NavItem>
@@ -28,6 +29,7 @@ const MainPage = () => {
           <NavItem to="/mypage">마이 페이지</NavItem>
         </Nav>
       </Header>
+      */}
       <Link to="/">
         <Title>마이 페이지</Title>
       </Link>
@@ -55,7 +57,7 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Mypage;
 
 
 

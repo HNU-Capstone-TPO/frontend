@@ -14,7 +14,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            <div className="ad"><Ad className="ad"/></div>
+            <div className="ad"><Ad /></div>
             <div className="right">
                 <div className="helper" ><Helper tags={tags}/></div>
                 <div className="input" ><Input getTags={getTags}/></div>

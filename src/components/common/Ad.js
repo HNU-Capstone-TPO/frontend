@@ -16,9 +16,7 @@ const Ad = () => {
     return (
 
         <div>
-
             <img src={ process.env.PUBLIC_URL +'/img/'+ adImg } alt="ad"/>
-
         </div>
     )
 }

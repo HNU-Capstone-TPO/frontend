@@ -1,0 +1,35 @@
+.page-content {
+    padding-top: 70px; /* 상단바 높이와 일치하도록 조정하세요 */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.left-section {
+    flex: 1;
+    max-width: 300px; /* Ad 컨테이너의 최대 너비를 조절하세요 */
+    flex-basis: 300px; /* Ad 컨테이너의 기본 너비를 조절하세요 */
+    padding-right: 20px; /* 오른쪽 간격을 조절하세요 */
+}
+
+.center-section {
+    flex: 2;
+    max-width: 600px; /* Styling 컨테이너의 최대 너비를 조절하세요 */
+    flex-basis: 600px; /* Styling 컨테이너의 기본 너비를 조절하세요 */
+    text-align: center;
+}
+
+.right-section {
+    flex: 1;
+    max-width: 300px; /* RelatedImage와 RelatedLink 컨테이너의 최대 너비를 조절하세요 */
+    flex-basis: 300px; /* RelatedImage와 RelatedLink 컨테이너의 기본 너비를 조절하세요 */
+    padding-left: 20px; /* 왼쪽 간격을 조절하세요 */
+}
+
+.bottom-section {
+    flex: 100%;
+    max-width: 100%; /* SelectedList 컨테이너의 최대 너비를 조절하세요 */
+    padding-top: 20px; /* 상단 간격을 조절하세요 */
+    display: flex; /* 바텀 섹션을 flex container로 변경 */
+    justify-content: center; /* 가로축에서 중앙 정렬 */
+}

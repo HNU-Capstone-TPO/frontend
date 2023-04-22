@@ -6,9 +6,6 @@ import Favorites from '../components/Mypage/Favorites';
 import InterestedProducts from '../components/Mypage/InterestedProducts';
 import {
   Container,
-  Header,
-  Nav,
-  NavItem,
   Title,
   Main,
   Sidebar,
@@ -17,37 +14,25 @@ import {
   PageContainer,
 } from './MyPageStyles';
 
-
 const Mypage = () => {
   return (
     <>
-    {/*
-      <Header>
-        <Nav>
-          <NavItem to="/login">로그인</NavItem>
-          <NavItem to="/signup">회원가입</NavItem>
-          <NavItem to="/mypage">마이 페이지</NavItem>
-        </Nav>
-      </Header>
-      */}
-      <Link to="/">
-        <Title>마이 페이지</Title>
-      </Link>
+      <Title>마이 페이지</Title>
       <Container>
         <Main>
           <Sidebar>
-            <SidebarItem to="/myinfo">내 정보</SidebarItem>
-            <SidebarItem to="/timeline">타임라인</SidebarItem>
-            <SidebarItem to="/favorites">찜 목록</SidebarItem>
-            <SidebarItem to="/interested-products">관심 상품</SidebarItem>
+            <SidebarItem to="/mypage/myinfo">내 정보</SidebarItem>
+            <SidebarItem to="/mypage/timeline">타임라인</SidebarItem>
+            <SidebarItem to="/mypage/favorites">찜 목록</SidebarItem>
+            <SidebarItem to="/mypage/interested-products">관심 상품</SidebarItem>
           </Sidebar>
           <Content>
             <PageContainer>
               <Routes>
-                <Route path="/myinfo" element={<MyInfo />} />
-                <Route path="/timeline" element={<Timeline />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/interested-products" element={<InterestedProducts />} />
+                <Route path="myinfo" element={<MyInfo />} />
+                <Route path="timeline" element={<Timeline />} />
+                <Route path="favorites" element={<Favorites />} />
+                <Route path="interested-products" element={<InterestedProducts />} />
               </Routes>
             </PageContainer>
           </Content>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
   background-color: #f5f5f5;
   margin-top: 20px;
 `;
@@ -41,7 +40,7 @@ const Title = styled.h1`
   font-size: 30px;
   color: black;
   margin-left: 20px;
-  margin-top: 40px;
+  margin-top: 60px;
   position: absolute;
 `;
 
@@ -49,6 +48,8 @@ const Main = styled.main`
   display: flex;
   flex-grow: 1;
   margin-top: 60px;
+  overflow-y: auto;
+  height: calc(100vh - 80px);
 `;
 
 const Sidebar = styled.div`

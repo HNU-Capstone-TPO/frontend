@@ -10,17 +10,22 @@ const Result = () => {
 
 
     return (
+        
         <div className="page-content">
+            {/*
         <div className="left-section">
             <Ad />
         </div>
+    */}
         <div className="center-section">
             <Styling setSelectedProducts={setSelectedProducts}/>
         </div>
+        {/*
         <div className="right-section">
             <RelatedImage />
             <RelatedLink />
         </div>
+*/}
         <div className="bottom-section">
             <SelectedList selectedProducts={selectedProducts}/>
         </div>

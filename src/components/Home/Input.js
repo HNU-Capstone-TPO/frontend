@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 
-const Input = ({getTags}) => {
+const Input = ({getTags, handleSubmit}) => {
     const [input, setInput] = useState('');
     const [start, setStart] = useState(0);
     var newTag = null;
@@ -21,6 +21,9 @@ const Input = ({getTags}) => {
           setStart(input.length);
         }
       };
+
+      
+
     return (
         <div className="textfield-wrapper">
             <TextField
@@ -33,12 +36,14 @@ const Input = ({getTags}) => {
                 onKeyDown={handleOnKeyPress}
             />
                 < Link to="/result">
-                    <Button variant="contained">
+                    <Button variant="contained" onClick={handleSubmit}>
                     입력
                     </Button>
                 </Link>
+              
       </div>
     )
 }
 export default Input;
+
 

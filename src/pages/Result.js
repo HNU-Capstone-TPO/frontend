@@ -8,12 +8,10 @@ import { useState } from "react";
 import { useLocation } from 'react-router-dom';
 
 const Result = () => {
-    const [selectedProducts, setSelectedProducts] = useState([null, null, null, null]);
+    const [selectedProducts, setSelectedProducts] = useState([null, null, null, null, null, null]);
     
     const location = useLocation();
     const users = location.state.users;
-
-
     return (
         
         <div className="page-content">

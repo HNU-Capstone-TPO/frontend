@@ -10,19 +10,23 @@ const Home = () => {
     
     const [tags, setTags] = useState([]);
     const [query, setQuery] = useState([]);
-    const [users, setUsers] = useState([]);
+    //const [users, setUsers] = useState([]);
 
     const navigate = useNavigate();
 
     const handleSubmit = () => {
+      console.log(tags);
     const formData = new FormData();
     formData.append("query", tags);
+    console.log(tags);
     axios
       .post("http://127.0.0.1:8000/search/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((response) => {
-        setUsers(response.data.users);
+        console.log("Is users an array?", Array.isArray(response.data.users));
+        console.log("response.data.users:", response.data.users);
+        //setUsers(response.data.users);
         navigate('/result', {
             state: { users: response.data.users },
         });
@@ -35,7 +39,9 @@ const Home = () => {
 
     const getTags = (newTag) => {
         setTags([...tags, newTag]);
-        console.log(tags);
+        setTimeout(() => {
+          console.log(tags);
+        }, 2000);
     }
 
     

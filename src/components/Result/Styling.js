@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+//import axios from "axios";
 import "./Styling.css";
 
 const InfoBox = ({ users, setSelectedProduct, index }) => {
@@ -44,16 +44,17 @@ const CustomButton = ({ onClick, children }) => {
   return <button onClick={onClick}>{children}</button>;
 };
 
-const Styling = ({ users, setSelectedProducts }) => {
+const Styling = ({ users=[], setSelectedProducts }) => {
+  console.log(typeof(users))
   const category = ['상의', '하의', '신발', '모자', '아우터', '부위테스트'];
   //const [products, setProducts] = useState([]);
   const [boxes, setBoxes] = useState([false, false, false, false, false, false]);
   const [selectedProduct, setSelectedProduct] = useState([null, null, null, null, null, null]);
   //타이틀에 단어로 필터링해서 박스로 보여줌
   const filterProducts = (category) => {
-    return users.filter((users) => users.part.includes(category));
+    return users.filter((user) => user.part && user.part.includes(category));
   };
-
+  
   const handleClick = (index) => {
     setBoxes((prevState) => {
       const newBoxes = [...prevState];
@@ -87,13 +88,15 @@ const Styling = ({ users, setSelectedProducts }) => {
           </CustomButton>
           {box && (
             <InfoBox
-              users={filterProducts(category[index])}
+              users={filterProducts(category[index] || [])}
               setSelectedProduct={setSelectedProduct}
               index={index}
             />
           )}
         </div>
       ))}
+       <div>
+    </div>
     </div>
   );
 };

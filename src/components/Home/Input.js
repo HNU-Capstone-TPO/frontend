@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 
-const Input = ({getTags, handleSubmit}) => {
+const Input = ({getTags, onSubmit}) => {
     const [input, setInput] = useState('');
     const [start, setStart] = useState(0);
     var newTag = null;
@@ -21,7 +21,11 @@ const Input = ({getTags, handleSubmit}) => {
           setStart(input.length);
         }
       };
-
+    const handleSubmit = (e) => {
+        handleOnKeyPress({key: "Enter"});
+        onSubmit();
+    };
+    
       
 
     return (
@@ -33,13 +37,13 @@ const Input = ({getTags, handleSubmit}) => {
                 rows={20}
                 placeholder="입력"
                 onChange={(e)=>setInput(e.target.value)}
-                onKeyDown={handleOnKeyPress}
+                onKeyDown={(e) => handleOnKeyPress(e, e.target.value)}
             />
-                < Link to="/result">
+                
                     <Button variant="contained" onClick={handleSubmit}>
                     입력
                     </Button>
-                </Link>
+               
               
       </div>
     )

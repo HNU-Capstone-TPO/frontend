@@ -18,6 +18,7 @@ const Helper = ({tags}) => {
     const [helpMessage, setHelpMessage] = useState(helpList[0]);
 
     useEffect(() => {
+        console.log(tags);
         if (tags.length !== 0 && check2) {
             setHelpMessage(helpList[1]);
             setCheck2(false);

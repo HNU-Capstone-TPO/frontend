@@ -45,7 +45,7 @@ const CustomButton = ({ onClick, children }) => {
 };
 
 const Styling = ({ users=[], setSelectedProducts }) => {
-  console.log(typeof(users))
+  
   const category = ['상의', '하의', '신발', '모자', '아우터', '부위테스트'];
   //const [products, setProducts] = useState([]);
   const [boxes, setBoxes] = useState([false, false, false, false, false, false]);

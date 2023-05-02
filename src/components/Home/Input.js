@@ -1,7 +1,6 @@
 import {useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
 
 
 const Input = ({getTags, onSubmit}) => {
@@ -9,25 +8,28 @@ const Input = ({getTags, onSubmit}) => {
     const [start, setStart] = useState(0);
     var newTag = null;
 
-    const handleOnKeyPress = (e) => {
-        if ((e.key === "Enter" || e.key === " ")) {
-
-          console.log("before:"+start);
-          newTag = input.substr(start, input.length).trim();
-          if(newTag===""){
-            return;
-          }
-          getTags(newTag);
-          setStart(input.length);
+    
+    const handleOnKeyPress = async (e, callback) => {
+      if (e.key === "Enter" || e.key === " ") {
+        console.log("before:" + start);
+        newTag = input.substr(start, input.length).trim();
+        if (newTag === "") {
+          return;
         }
-      };
-    const handleSubmit = (e) => {
-        handleOnKeyPress({key: "Enter"});
+        await getTags(newTag);
+        setStart(input.length);
+        if (callback) {
+          callback();
+        }
+      }
+    };
+      
+    const handleSubmit = async (e) => {
+      await handleOnKeyPress({ key: " " }, () => {
         onSubmit();
+      });
     };
     
-      
-
     return (
         <div className="textfield-wrapper">
             <TextField

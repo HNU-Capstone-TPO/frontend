@@ -16,6 +16,7 @@ const SelectedList = ({ selectedProducts }) => {
           product ? (
             <div key={index}>
                 Selected {category[index]}: {product.name}
+                Price: {product.price}
             </div>
           ) : null
         )}

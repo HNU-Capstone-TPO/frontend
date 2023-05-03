@@ -28,8 +28,6 @@ const Home = () => {
             headers: { "Content-Type": "multipart/form-data" },
           })
           .then((response) => {
-            console.log("Is users an array?", Array.isArray(response.data.users));
-            console.log("response.data.users:", response.data.users);
             //setUsers(response.data.users);
             navigate('/result', {
                 state: { users: response.data.users },
@@ -72,7 +70,6 @@ const Home = () => {
     
     return (
         <div className="home">
-            <div className="ad"><Ad /></div>
             <div className="right">
                 <div className="helper" ><Helper tags={tags}/></div>
                 <div className="input" ><Input onSubmit={handleSubmit} getTags={getTags}/></div>

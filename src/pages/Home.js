@@ -12,12 +12,14 @@ const Home = () => {
     const [query, setQuery] = useState([]);
     const [submitFlag, setSubmitFlag] = useState(false);
     //const [users, setUsers] = useState([]);
-
     const navigate = useNavigate();
 
+
     const handleSubmit = () => {
-      setSubmitFlag(!submitFlag);
+          setSubmitFlag(!submitFlag);
+
     };
+
     useEffect(() => {
       if (submitFlag) {
         const formData = new FormData();
@@ -62,17 +64,18 @@ const Home = () => {
     setQuery(tags);
   };
 */
+  /*
   const getTags = async (newTag) => {
     setTags([...tags, newTag]);
   };
-  
+  */
     
     
     return (
         <div className="home">
             <div className="right">
                 <div className="helper" ><Helper tags={tags}/></div>
-                <div className="input" ><Input onSubmit={handleSubmit} getTags={getTags}/></div>
+                <div className="input" ><Input onSubmit={handleSubmit} setTags={setTags} tags={tags}/></div>
             </div>
         </div>
     )

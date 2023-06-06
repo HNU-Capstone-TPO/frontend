@@ -1,10 +1,8 @@
-import Ad from "../components/common/Ad";
 import Helper from "../components/Home/Helper";
 import Input from "../components/Home/Input";
 import TagRank from "../components/Home/TagRank";
 import ItemRank from "../components/Home/ItemRank";
 import Guide from "../components/Home/Guide";
-import Navi from "../components/Home/Navi";
 import './Home.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -91,18 +89,24 @@ const Home = () => {
     return (
       <SaveContext.Provider value={{ getSave }}>
         <div className="home">
-            <div className="right">
-                <div className="helper" ><Helper tags={tags}/></div>
-                <div className="input" >
-                  <Navi />
-                  <Input onSubmit={handleSubmit} setTags={setTags} tags={tags} button={button} setButton={setButton} getSave={getSave}/> 
-                  <Guide/>
+          
+        <img className="back" src="/img/background.jpg" alt="상의" width="100%" height="100%" />
+            <div className="center">
+              
+                <div className="helper" style={{marginBottom: "20px"}} ><Helper tags={tags}/></div>
+                <div className="input-container" style={{ display: "flex", justifyContent: "space-between"}}>
+                <div className="input">
+                  <Input onSubmit={handleSubmit} setTags={setTags} tags={tags} button={button} setButton={setButton} getSave={getSave}/>
                 </div>
-                <div>
+                
+                <Guide />
+                </div>
+            </div>
+            
+            <div style={{display: "flex", flexDirection: "row",  justifyContent: "center", marginTop: "5%", marginBottom: "5%", gap: "2rem"}}>
                   <TagRank />
                   <ItemRank />
                 </div>
-            </div>
         </div>
         </SaveContext.Provider>
     )

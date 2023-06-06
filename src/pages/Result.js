@@ -1,4 +1,3 @@
-import Ad from "../components/common/Ad";
 import RelatedImage from "../components/Result/RelatedImage";
 import RelatedLink from "../components/Result/RelatedLink";
 import SelectedList from "../components/Result/SelectedList";
@@ -12,6 +11,7 @@ const Result = () => {
     
     const location = useLocation();
     const users = location.state.users;
+    console.log(users[0])
     return (
         
         <div className="page-content">
@@ -23,12 +23,11 @@ const Result = () => {
         <div className="center-section">
             <Styling users={users} setSelectedProducts={setSelectedProducts}/>
         </div>
-        {/*
+        
         <div className="right-section">
-            <RelatedImage />
-            <RelatedLink />
+            <RelatedLink user={users[0]}/>
         </div>
-*/}
+
         <div className="bottom-section">
             <SelectedList selectedProducts={selectedProducts}/>
         </div>

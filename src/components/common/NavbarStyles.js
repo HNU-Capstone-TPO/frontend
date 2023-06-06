@@ -4,12 +4,11 @@ import { NavLink } from 'react-router-dom';
 export const LogoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 100;
 `;
 
@@ -29,4 +28,8 @@ export const NavItem = styled(NavLink)`
   &.active {
     color: #fff;
   }
+`;
+export const RightItems = styled.div`
+  margin-left: auto;
+  margin-right: 20%;
 `;

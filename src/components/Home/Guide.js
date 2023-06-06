@@ -21,9 +21,9 @@ const Guide = () => {
     }
 
     return (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", marginLeft: "30px", marginTop: "50px"}}>
             {keyword.map((word, index) => (
-                <ButtonDropdown isOpen={openDropdown === word} toggle={() => toggleDropdown(word)} key={index}>
+                <ButtonDropdown isOpen={openDropdown === word} toggle={() => toggleDropdown(word)} key={index}  style={{ marginBottom: "10px" }}>
                     <DropdownToggle caret>{word}</DropdownToggle>
                     <DropdownMenu>
                         {options[word].map((option, index) => (

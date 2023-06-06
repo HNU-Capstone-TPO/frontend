@@ -8,7 +8,6 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
   const { users: savedUsers, setUsers: setSavedUsers } = useContext(SaveItemContext);
   const { recommend, setRecommend } = useContext(SaveRecommendContext);
 
-
   const handleCheckboxChange = (e, user) => {
     setSelectedProduct((prevState) => {
       const newSelected = [...prevState];
@@ -44,22 +43,39 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
   }
 
   return (
-    <div className="info-box">
+    <table className="info-box">
       {users.map((user) => (
-        <div key={user.id}>
-          <h2>{user.name}</h2>
-          <p>{user.id} {user.gender_field} {user.part} {user.color} {user.season} {user.brand} {user.price} {user.tag}</p>
-          <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100px", height: "100px" }}/>
-          <a href={user.rink} target="_blank" rel="noopener noreferrer">{user.name}</a>
-          <input
-            type="checkbox"
-            id={`checkbox-${user.id}`}
-            onChange={(e) => handleCheckboxChange(e, user)}
-          />
-          <button onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user)}}>찜</button>
-        </div>
+        <td className="info-item" key={user.id}>
+          <td className="info-detail">
+            <td className="info-detail-name">
+              {user.name}
+            </td>
+            <td className="info-detail2">
+              <td className="info-item-img">
+              <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100px", height: "100px" }}/>
+              </td>
+              <td className="info-detail3">
+                <div>{user.price}</div> 
+                <div>{user.brand}</div>
+                <td className="info-detail2">
+                  <div >
+                    <a href={user.rink} target="_blank" rel="noopener noreferrer">
+                      <img src="/img/rink.png" style={{ width: "50px", height: "50px" }}/>
+                    </a>
+                  </div>
+                  <button className="info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user)}}>찜</button>
+                  <td className="info-item-button">
+                    <input type="checkbox" id={`checkbox-${user.id}`} onChange={(e) => handleCheckboxChange(e, user)}/>
+                    <label for={`checkbox-${user.id}`}></label>
+                  </td>
+                </td>  
+              </td>
+            </td >
+            
+          </td>
+        </td>
       ))}
-    </div>
+    </table>
   );
 };
 
@@ -69,7 +85,7 @@ const CustomButton = ({ onClick, children }) => {
 
 const Styling = ({ users=[], setSelectedProducts }) => {
   
-  const category = ['상의', '하의', '신발', '모자', '아우터', '부위테스트'];
+  const category = ['상의', '하의', '신발', '모자', '아우터', '악세사리'];
   //const [products, setProducts] = useState([]);
   const [boxes, setBoxes] = useState([false, false, false, false, false, false]);
   const [selectedProduct, setSelectedProduct] = useState([null, null, null, null, null, null]);
@@ -92,12 +108,14 @@ const Styling = ({ users=[], setSelectedProducts }) => {
   }, [selectedProduct, setSelectedProducts]);
 
   return (
-    <div className="app">
+    <table className="app">
+
       {boxes.map((box, index) => (
-        <div className="button-container" key={index}>
+        <td className="button-container" key={index}>
           <CustomButton onClick={() => handleClick(index)}>
             {category[index]}
           </CustomButton>
+          
           {box && (
             <InfoBox
               users={filterProducts(category[index] || [])}
@@ -105,11 +123,9 @@ const Styling = ({ users=[], setSelectedProducts }) => {
               index={index}
             />
           )}
-        </div>
+        </td>
       ))}
-       <div>
-    </div>
-    </div>
+    </table>
   );
 };
 

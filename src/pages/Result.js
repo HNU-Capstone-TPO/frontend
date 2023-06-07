@@ -11,26 +11,25 @@ const Result = () => {
     
     const location = useLocation();
     const users = location.state.users;
-    console.log(users[0])
     return (
-        
-        <div className="page-content">
-            {/*
-        <div className="left-section">
-            <Ad />
-        </div>
-    */}
-        <div className="center-section">
-            <Styling users={users} setSelectedProducts={setSelectedProducts}/>
-        </div>
-        
-        <div className="right-section">
-            <RelatedLink user={users[0]}/>
-        </div>
+    <div className="page-top">
+        <table className="page-content-left">
+            
+        </table>
+        <table className="page-content">
+            <td className="center-section">
+            <td>
+                <img className="imga" src="/img/model.png" alt="모자1" width="80px" height="80px"></img>
+            </td>
+                <Styling users={users} setSelectedProducts={setSelectedProducts}/>
+            </td>
+            <td className="bottom-section">
+                <SelectedList selectedProducts={selectedProducts}/>
+            </td>
+        </table>
+        <table className="page-content-right">
 
-        <div className="bottom-section">
-            <SelectedList selectedProducts={selectedProducts}/>
-        </div>
+        </table>
     </div>
     )
 }

@@ -6,6 +6,7 @@ import Signup from './pages/Signup';
 import Result from './pages/Result';
 import Layout from './components/Layout/Layout';
 import Search from './pages/Search';
+import UserSelect from './pages/UserSelect';
 import { SaveProvider } from "./contexts/SaveContext";
 import { SaveItemContextProvider } from "./contexts/SaveItem";
 import { SaveRecommendContextProvider} from './contexts/SaveRecommend';
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/mypage/*" element={<Mypage />} />
+                <Route path="/userselectitem" element={<UserSelect />} />
               </Route>
             </Routes>
           </ProductContextProvider>

@@ -1,4 +1,4 @@
-.box{
+.SelectList-box{
     display: flex;
     width: 500px;
     height: 100%;
@@ -6,7 +6,7 @@
     align-items: center; /* 수직 가운데 정렬 */
   }
 
-.hibbb{
+.SelectList-hibbb{
     margin-top: 10px;
     display: flex;
     border-top: 3px solid #402020;
@@ -14,19 +14,19 @@
     width: 500px;
 }
 
-.hiaaa{
+.SelectList-hiaaa{
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-.bbb{
+.SelectList-bbb{
     display: flex;
     border: 3px solid #402020;
     margin: 5px;
 }
 
-.bbbname {
+.SelectList-bbbname {
     display: flex;
     width: 300px;
     height: 50px;
@@ -34,7 +34,7 @@
     margin-right: 20px;
 }
 
-.bbbprice {
+.SelectList-bbbprice {
     display: flex;
     width: 100px;
     height: 50px;
@@ -42,7 +42,7 @@
     align-items: center;
 }
 
-.aaa {
+.SelectList-aaa {
     position: relative;
     flex-direction: column;
     display: flex;

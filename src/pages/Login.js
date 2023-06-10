@@ -44,9 +44,9 @@ const Login = () => {
           <div className="top" style={{ display: "flex", flexDirection: "column", alignSelf: "flex-start", fontSize: "30px", fontWeight: "bold", marginLeft: "30px"}}>
               <>
               <img 
-                src={process.env.PUBLIC_URL + '/img/logo.png'} 
+                src={process.env.PUBLIC_URL + '/img/logo7.png'} 
                 alt="Logo"
-                style={{ height: '70px'}} />
+                style={{ height: '50px'}} />
                 <div style={{marginLeft: "10px"}}>
                   <label>로그인</label>
                 </div>
@@ -76,6 +76,7 @@ const Login = () => {
                 id="standard-basic" 
                 name="password"
                 label="비밀번호" 
+                type="password"
                 variant="standard"
                 value={user.password}
                 onChange={handleChange}  />

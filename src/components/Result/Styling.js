@@ -7,6 +7,20 @@ import axios from "axios";
 const InfoBox = ({ users, setSelectedProduct, index }) => {
   const { users: savedUsers, setUsers: setSavedUsers } = useContext(SaveItemContext);
   const { recommend, setRecommend } = useContext(SaveRecommendContext);
+  const [currentPage, setCurrentPage] = useState(1);
+
+
+  const handlePrevClick = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleNextClick = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const itemsPerPage = 3;
+
+  const pageItems = users.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handleReset = () => {
     setRecommend([]);
@@ -27,7 +41,7 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
       return newSelected;
     });
 
-    users.forEach((u) => {
+    pageItems.forEach((u) => {
       if (u !== user) {
         document.getElementById(`checkbox-${u.id}`).checked = false;
       }
@@ -71,9 +85,8 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
 
   return (
     <table className="Styling-info-box">
-      <button onClick={handleReset}>Save</button>
-      <button onClick={handleReset1}>SaveUser</button>
-      {users.map((user) => (
+       {pageItems.length > 0 ? pageItems.map((user) =>
+      user && (
         <td className="Styling-info-item" key={user.id}>
           <td className="Styling-info-detail">
             <td className="Styling-info-detail-name">
@@ -81,7 +94,7 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
             </td>
             <td className="Styling-info-detail2">
               <td className="Styling-info-item-img">
-              <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100px", height: "100px" }}/>
+              <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100%", height: "100%" }}/>
               </td>
               <td className="Styling-info-detail3">
                 <div className="Styling-info-pricebrand">{user.price}</div> 
@@ -90,23 +103,35 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
                 <td className="Styling-info-detail2">
                   <div className="Styling-info-rink">
                     <a href={user.rink} target="_blank" rel="noopener noreferrer">
-                      <img src="/img/t10rink.png" style={{ width: "50px", height: "50px" }}/>
+                      <img src="/img/t10rink.png" alt="링크" style={{ width: "50px", height: "50px" }}/>
                     </a>
                   </div>
                   <button className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user)}}>
-                    <img src="/img/t10jjim.png" style={{ width: "50px", height: "50px" }}/>
+                    <img src="/img/t10jjim.png"  alt="찜" style={{ width: "50px", height: "50px" }}/>
                   </button>
                   <td className="Styling-info-item-button">
                     <input type="checkbox" id={`checkbox-${user.id}`} onChange={(e) => handleCheckboxChange(e, user)}/>
-                    <label for={`checkbox-${user.id}`}></label>
+                    <label className="Styling-info-item-label" for={`checkbox-${user.id}`}></label>
                   </td>
                 </td>  
               </td>
             </td >
             
           </td>
-        </td>
-      ))}
+        </td>)
+       ) : <td style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: "30px"}}>상품 없음</td>}
+
+       {pageItems.length > 0 &&
+      <td className="UserSelectItem-pagination">
+        <button className="UserSelectItem-pagination-click" onClick={handlePrevClick} disabled={currentPage === 1}>
+        <img className="UserSelectItem-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
+        </button>
+        <td className="UserSelectItem-pagination-number">{currentPage}</td>
+        <button className="UserSelectItem-pagination-click" onClick={handleNextClick} disabled={(users.length < (currentPage * itemsPerPage)+1)}>
+        <img className="UserSelectItem-pagination-animation" src="/img/right.png" alt="awsdf2" width="30px" height="30px"></img>
+        </button>
+      </td>
+      }
     </table>
   );
 };
@@ -197,15 +222,20 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
 };*/
 
 const CustomButton = ({ onClick, children }) => {
-  return <button onClick={onClick}>{children}</button>;
+  return (
+    <button className="image-button" type="button" onClick={onClick}>
+      {children}
+    </button>
+  );
 };
 
 const Styling = ({ users=[], setSelectedProducts }) => {
   
-  const category = ['상의', '하의', '신발', '모자', '아우터', '악세사리'];
+  const category = ['아우터', '모자', '포인트', '상의', '신발', '하의'];
   //const [products, setProducts] = useState([]);
   const [boxes, setBoxes] = useState([false, false, false, false, false, false]);
   const [selectedProduct, setSelectedProduct] = useState([null, null, null, null, null, null]);
+  const [buttonImages, setButtonImages] = useState(['아우터b', '모자b', '포인트b', '상의b', '신발b', '하의b']);
   //타이틀에 단어로 필터링해서 박스로 보여줌
   const filterProducts = (category) => {
     console.log(users);
@@ -215,34 +245,66 @@ const Styling = ({ users=[], setSelectedProducts }) => {
   const handleClick = (index) => {
     setBoxes((prevState) => {
       const newBoxes = [...prevState];
-      newBoxes[index] = !newBoxes[index];
+      if(newBoxes[index]===true){
+        newBoxes[index] = false;
+      }
+      else if(newBoxes[index]===false){
+        for(var i=0; i<newBoxes.length; i++){
+          if(i!==index){
+            newBoxes[i]= false;
+          }
+        }
+        newBoxes[index] = true;
+      }
       return newBoxes;
     });
+    setButtonImages(prev => {   // Add this block
+      const newImages = [...prev];
+
+      for(var i=0; i<buttonImages.length; i++){
+        if(i!==index){
+          newImages[i]= `${category[i]}b`;
+        }
+        else if(i===index){
+          newImages[i] = newImages[i] === `${category[index]}b` ? `${category[index]}c` : `${category[index]}b`;
+          }
+      }
+      
+      return newImages;
+    });
   };
+  
+
   
   useEffect(() => {
     setSelectedProducts(selectedProduct);
   }, [selectedProduct, setSelectedProducts]);
 
   return (
+    <>
+    {boxes.map((box, index) => (
+      box && (
+      <InfoBox
+      users={filterProducts(category[index] || [])}
+      setSelectedProduct={setSelectedProduct}
+      index={index}
+    />
+      )
+    ))}
+    
     <table className="app">
-
-      {boxes.map((box, index) => (
-        <td className="button-container" key={index}>
-          <CustomButton onClick={() => handleClick(index)}>
-            {category[index]}
-          </CustomButton>
+      
+    {buttonImages.map((image, index) => (
+      <td className="button-container" key={index}>
+        <CustomButton onClick={() => handleClick(index)}>
+          <img src={`img/${image}.jpg`} alt="이미지" height="70px"/>
+        </CustomButton>
+      </td>
+    ))}
           
-          {box && (
-            <InfoBox
-              users={filterProducts(category[index] || [])}
-              setSelectedProduct={setSelectedProduct}
-              index={index}
-            />
-          )}
-        </td>
-      ))}
+
     </table>
+    </>
   );
 };
 

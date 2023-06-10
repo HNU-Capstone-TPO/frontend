@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Result from './pages/Result';
 import Layout from './components/Layout/Layout';
+import Layout2 from './components/Layout/Layout2';
 import Search from './pages/Search';
 import UserSelect from './pages/UserSelect';
 import { SaveProvider } from "./contexts/SaveContext";
@@ -20,13 +21,15 @@ const App = () => {
       <SaveItemContextProvider>
         <SaveRecommendContextProvider>
           <ProductContextProvider>
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/result" element={<Result />} />
-                <Route path="/search" element={<Search />} />
+            <Routes> 
+              <Route element={<Layout2 />}>
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/result" element={<Result />} />
+              </Route>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/search" element={<Search />} />
                 <Route path="/mypage/*" element={<Mypage />} />
                 <Route path="/userselectitem" element={<UserSelect />} />
               </Route>
@@ -35,7 +38,10 @@ const App = () => {
         </SaveRecommendContextProvider>
       </SaveItemContextProvider>
     </SaveProvider>
+
     </AuthProvider>
+
+
   );
 };
 

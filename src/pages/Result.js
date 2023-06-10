@@ -14,7 +14,6 @@ const Result = () => {
     return (
     <div className="page-top">
         <table className="page-content-left">
-            
         </table>
         <table className="page-content">
             <td className="center-section">
@@ -28,7 +27,9 @@ const Result = () => {
             </td>
         </table>
         <table className="page-content-right">
-
+            <RelatedImage imgsrc={users[0].modelimage} />
+            <div style={{ marginTop: "30px", height: '1px', width: "250px", backgroundColor: 'black', opacity: 0.5 }} /> 
+            <RelatedLink user={users[0]}/>
         </table>
     </div>
     )

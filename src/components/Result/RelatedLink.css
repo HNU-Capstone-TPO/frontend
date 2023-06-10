@@ -1,6 +1,13 @@
 .image-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.youtube a, .blog a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .msgbox {
     position: absolute;

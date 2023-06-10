@@ -5,8 +5,7 @@ const Footer = () => {
         <div className="footer">
             <td className="footer-in">
                 <p className="footer-item">T.P.O.</p>
-                <p className="footer-item">010-2434-5433</p>
-                <p className="footer-item">adsjlk@gmail.com</p>
+                <p className="footer-item">dntkddus123@gmail.com</p>
             </td>
         </div>
     )

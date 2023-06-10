@@ -8,7 +8,9 @@ export const LogoWrapper = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
+
+  
   z-index: 100;
 `;
 

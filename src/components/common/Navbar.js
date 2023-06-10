@@ -16,9 +16,9 @@ const Navbar = () => {
       <Nav>
       <NavItem exact to="/" activeClassName="active" style={{ marginRight: 'auto', marginLeft: '20%' }}>
           <img 
-          src={process.env.PUBLIC_URL + '/img/logo.png'} 
+          src={process.env.PUBLIC_URL + '/img/logo13.png'} 
           alt="Logo"
-          style={{ height: '50px'}} />
+          style={{ height: '40px'}} />
         </NavItem>
         <RightItems>
         {isLoggedIn ? (

@@ -3,21 +3,9 @@ import { Link } from 'react-router-dom';
 
 //공백용
 const Container = styled.div`
-  margin-top: 80px;
   display: flex;
-  height: 800px;
   width: 100%;
-  z-index:3;
-`;
-
-const Container2 = styled.div`
-  display: flex;
-  position: absolute;
-  top: 0;
-  height: 500px;
-  width: 100%;
-  z-index:0;
-  background: linear-gradient( to top, white, #43459d )
+  background-color: #f5f5f5;
 `;
 
 const Header = styled.header`
@@ -63,17 +51,20 @@ const Main = styled.main`
   overflow-y: auto;
   height: calc(100vh - 80px);
   margin-left: 200px;
+  
 `;
 
 //사이드 table
 const Sidebar = styled.div`
   display: flex;
+  position: absolute;
   flex-direction: column;
   padding: 40px;
   border: 3px solid #e6e6e6;
   width: 210px;
   margin-top: 80px;
   height: 480px;
+  margin-left: -500px;
   justify-content: center;
   background-color: #fff;
 `;
@@ -103,18 +94,13 @@ const Content = styled.div`
 `;
 
 const PageContainer = styled.div`
-  display: flex;
-  background-color: #f9f9f9;
+  background-color: white;
   padding: 20px;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  margin-top: 0px;
-  width: 1400px;  
-  height: 850px;
-  position: relative;
-  z-index:80;
-  justify-content: center;
-  align-items: center;
+  margin-top: 60px;
+  width: 1060px;
+  max-width: 1060px;
 `;
 
 export {
@@ -128,5 +114,4 @@ export {
   SidebarItem,
   Content,
   PageContainer,
-  Container2,
 };

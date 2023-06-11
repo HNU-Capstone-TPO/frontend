@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, NavItem, LogoWrapper, RightItems } from './NavbarStyles';
-import { AuthContext } from '../../contexts/LoggedIn';
+import { AuthContext } from "../../contexts/LoggendIn"
 
 const Navbar = () => {
 
@@ -51,6 +51,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 /*import React from 'react';
 import { NavLink } from 'react-router-dom';

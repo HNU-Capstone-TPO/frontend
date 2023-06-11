@@ -12,7 +12,7 @@ import { SaveProvider } from "./contexts/SaveContext";
 import { SaveItemContextProvider } from "./contexts/SaveItem";
 import { SaveRecommendContextProvider} from './contexts/SaveRecommend';
 import { ProductContextProvider } from "./contexts/Product";
-import { AuthProvider } from './contexts/LoggedIn';
+import { AuthProvider } from "./contexts/LoggendIn";
 
 const App = () => {
   return (
@@ -26,10 +26,10 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/result" element={<Result />} />
+                <Route path="/search" element={<Search />} />
               </Route>
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/search" element={<Search />} />
                 <Route path="/mypage/*" element={<Mypage />} />
                 <Route path="/userselectitem" element={<UserSelect />} />
               </Route>

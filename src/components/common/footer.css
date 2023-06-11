@@ -1,0 +1,22 @@
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+
+}
+
+.footer-in {
+    display: flex;
+    margin-top: 150px;
+    border-top: 0px solid #000;
+    background-color: rgb(231, 231, 231);
+    color: black;
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+}
+
+
+.footer-item {
+    margin-left: 10px;
+}
